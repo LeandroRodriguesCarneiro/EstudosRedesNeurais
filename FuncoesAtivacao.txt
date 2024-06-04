@@ -1,0 +1,6 @@
+Funções Sigmóide e suas combinações geralmente funcionam melhor no caso de classificadores.
+Funções Sigmóide e Tanh às vezes são evitadas devido ao problema de Vanishing Gradient (que estudaremos no capítulo sobre redes neurais recorrentes).
+A função ReLU é uma função de ativação geral e é usada na maioria dos casos atualmente.
+Se encontrarmos um caso de neurônios deficientes em nossas redes, a função Leaky ReLU é a melhor escolha.
+Tenha sempre em mente que a função ReLU deve ser usada apenas nas camadas ocultas.
+Como regra geral, você pode começar usando a função ReLU e depois passar para outras funções de ativação no caso da ReLU não fornecer resultados ótimos.
