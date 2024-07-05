@@ -1,2 +1,1 @@
 A derivada em um ponto é o coeficiente angular da reta tangente ao gráfico naquele ponto. Quanto mais inclinada a reta tangente, maior é a derivada naquele ponto
-
