@@ -1,0 +1,96 @@
+Ajuste de hiper parametros: não existe magica, mas tem recomendações para solução de problemas utilizando RNAs
+
+Metodos de inicialização de pesos:
+ - Gorot/Xavier => *Normal*, uniform
+        -- preferencia pelo uso de Normal
+
+Camadas oucultas:
+ - apenas 1 camada resolve qualquer problema mas é dificil de prever o numero de neuronios
+ - Uso de até 3 Camadas podendo ser utilizado 4, uso de 5 ou mais não tende a melhorar a solução
+
+Quantidade de neuronios:
+ - resultado de potencias de base 2 ou multiplos de 10:
+        -- 8, 10, 16, 20, 32 melhores
+ - com poucas camadas aumente a quantidade de neuronios:
+        -- 50, 100, 200 mas não influenciam tanto
+ - outra recomendação é o uso de mais neuronios na primeira camada que os atributos do problema
+ - uso nos treinos iniciais com quantidade exagerada de neuronios e decair olhando os se os resultados se aproximam do resultado com maior neuronios
+ 
+Otimizador:
+ - SGD -> descendente gradiente estocastico -> foi implementado durante o curso
+ - preferencia -> Adam
+ - RMSProp -> Processamento de linguagem natural e redes recorrentes
+ - Adadelta
+
+Função de ativação:
+ - Relu -> recomendação
+ - leaky Relu
+ - eLU
+ - Tanh
+
+Droput:
+ - 1 -> nunca use
+ - 0.5 -> preferivel 
+ - 0.4
+ - 0.3
+ - 0.25
+ - Nunca aplique no teste
+
+Regularização:
+ - 1e-1
+ - 1e-2
+ - 1e-3
+ - 1e-4
+ Valores muito pequenas anulam a regularização apique apenas se precisar
+
+Momentum 
+ - 0.9 performa melhor
+ - 0.99
+ - 0.5
+
+Batch size
+ - Uso de 8, 16, 32 tamanhos menores performam melhor 
+ - Limitado a memoria
+ - 8 
+ - 16
+ - 32 -> recomendação do professor
+ - 64
+ - 128
+
+Funçã de custo e ativação
+ - Regreção
+  = qtd neuronios: outputs
+  = função de ativação: Linear
+  = funcação de custo: mse, mae, sse
+
+
+ - classificação binaria
+  = qtd neuronios: 1
+  = função de ativação: sigmoid
+  = funcação de custo: Cross Entropy
+
+ - classificação multiclasse
+  = qtd neuronios: qtd de classes
+  = função de ativação: Linear
+  = funcação de custo: Softmax + Neg. Log-Likelihood -> em frameworks keras tensorflow classificação multiclasse utlizar na ultima camada softmax e categorical cross entropy 
+
+epochs
+ - Colocar alor aleatório e ver se a rede converge exemplo 100
+ - em casos de underfiting está o erro está longe de 0 multiplicar o numero de epochs por 3, 5 ou 10
+
+Leaning rate
+ - perda não desce ela está alta dividir por 2, 3, 10
+ - Treinamento lento multiplicar por 3, 5, 10
+
+
+Treinamento:
+ - Encontre uma arquitetura e parametros que dão overfiting no banco de treinamento. Depois regularize.
+
+Transfer Learning:
+- Utilizar pesos de uma rede neural ja treinada para treinar um novo modelo com problemas similares ao primeiro (os dominios dos problemas são similares)
+- Quando aplicar:
+ = Quando tiver muitos dados e datasets similares: treine algumas camadas do modelo base e o classificador de saida
+ = Quando tiver muitos dados e datasets diferentes: Treine um numero maior de camadas ou todas da rede
+ = Quando tiver poucos dados e datasets similares: Treine apenas o classificador de saida
+ = Quando tiver poucos dados e datasets diferentes: Não faz sentido aplicar transfer learning
+
