@@ -63,7 +63,6 @@ Funçã de custo e ativação
   = função de ativação: Linear
   = funcação de custo: mse, mae, sse
 
-
  - classificação binaria
   = qtd neuronios: 1
   = função de ativação: sigmoid
@@ -82,15 +81,29 @@ Leaning rate
  - perda não desce ela está alta dividir por 2, 3, 10
  - Treinamento lento multiplicar por 3, 5, 10
 
-
 Treinamento:
  - Encontre uma arquitetura e parametros que dão overfiting no banco de treinamento. Depois regularize.
 
 Transfer Learning:
-- Utilizar pesos de uma rede neural ja treinada para treinar um novo modelo com problemas similares ao primeiro (os dominios dos problemas são similares)
-- Quando aplicar:
- = Quando tiver muitos dados e datasets similares: treine algumas camadas do modelo base e o classificador de saida
- = Quando tiver muitos dados e datasets diferentes: Treine um numero maior de camadas ou todas da rede
- = Quando tiver poucos dados e datasets similares: Treine apenas o classificador de saida
- = Quando tiver poucos dados e datasets diferentes: Não faz sentido aplicar transfer learning
+ - Utilizar pesos de uma rede neural ja treinada para treinar um novo modelo com problemas similares ao primeiro (os dominios dos problemas são similares)
+ - Quando aplicar:
+  = Quando tiver muitos dados e datasets similares: treine algumas camadas do modelo base e o classificador de saida
+  = Quando tiver muitos dados e datasets diferentes: Treine um numero maior de camadas ou todas da rede
+  = Quando tiver poucos dados e datasets similares: Treine apenas o classificador de saida
+  = Quando tiver poucos dados e datasets diferentes: Não faz sentido aplicar transfer learning
 
+Treinamento:
+ - baixo bias e baixa variancia: Seu modelo está muito bom
+ - baixo bias e alta variancia:
+                             = aumentar dados
+                             = reduzir complexidade do modelo
+                             = reduzir as features
+                             = aumentar a regularização
+                             = novo modelo ou arquitetura
+ - auto bias e baixa variancia:
+                             = treinar por mais tempo
+                             = aumentar complexidade do modelo
+                             = aumentar as features
+                             = reduzir a regularização
+                             = novo modelo ou arquitetura
+ - auto bias e auta variancia: Não existe
